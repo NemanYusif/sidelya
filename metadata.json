@@ -1,0 +1,6 @@
+{
+  "name": "Artisan Sweet Shop",
+  "description": "A premium digital menu and WhatsApp-integrated ordering system for exquisite sweets, cakes, and pastries.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
