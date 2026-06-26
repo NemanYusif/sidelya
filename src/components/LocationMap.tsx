@@ -142,8 +142,8 @@ export default function LocationMap() {
             id="map-embed-pane"
           >
             <iframe
-              title="Artisan Sweet Shop Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.4287049444105!2d49.8396593!3d40.377196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6092040001%3A0x9d11fb719a957d19!2sNizami%20St%2C%20Bak%C4%B1!5e0!3m2!1sen!2saz!4v1700000000000!5m2!1sen!2saz"
+              title="Sidelya Bakhlava Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3038.5139083473323!2d49.95010757601007!3d40.397464771442756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDIzJzUwLjkiTiA0OcKwNTcnMDkuNyJF!5e0!3m2!1sen!2saz!4v1782482643600!5m2!1sen!2saz"
               width="100%"
               height="100%"
               style={{ border: 0 }}

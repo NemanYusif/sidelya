@@ -188,22 +188,13 @@ export default function App() {
               </h4>
               <div className="flex gap-2.5" id="footer-social-links">
                 <a 
-                  href="https://instagram.com" 
+                  href="https://www.instagram.com/sidelya_bakhlava?igsh=MTdocTlpM3BybzVrYw==" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex h-8 w-8 items-center justify-center rounded border border-white/10 bg-white/5 text-stone-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer"
                   aria-label="Instagram handle"
                 >
                   <Instagram className="h-4 w-4" />
-                </a>
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex h-8 w-8 items-center justify-center rounded border border-white/10 bg-white/5 text-stone-300 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all cursor-pointer"
-                  aria-label="Facebook page"
-                >
-                  <Facebook className="h-4 w-4" />
                 </a>
               </div>
             </div>

@@ -15,7 +15,7 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-40 w-full border-b backdrop-blur-md transition-all duration-300 h-16 flex items-center
+      className="sticky top-0 z-40 w-full border-b backdrop-blur-md transition-all duration-300 h-20 flex items-center
         bg-white border-stone-200 text-stone-900
         dark:bg-[#111827] dark:border-neutral-800 dark:text-neutral-50"
       id="main-header"
