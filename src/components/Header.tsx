@@ -1,6 +1,6 @@
 import { useStore } from '../store';
 import { translations } from '../translations';
-import { ShoppingBag, Store } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import { Language } from '../types';
 
 export default function Header() {

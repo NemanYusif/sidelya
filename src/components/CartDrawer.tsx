@@ -3,6 +3,7 @@ import { useStore } from '../store';
 import { translations } from '../translations';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Trash2, Plus, Minus, Send, ShoppingBag } from 'lucide-react';
+import { SHOP_PHONE } from '../constants';
 
 export default function CartDrawer() {
   const { 
@@ -87,9 +88,9 @@ export default function CartDrawer() {
 
     // Generate Invoice message block based on current active language
     const headers = {
-      az: '🛒 *ARTISAN SWEET SHOP - YENİ SİFARİŞ*',
-      en: '🛒 *ARTISAN SWEET SHOP - NEW ORDER*',
-      ru: '🛒 *ARTISAN SWEET SHOP - НОВЫЙ ЗАКАЗ*'
+      az: '🛒 *SIDELYA BAKHLAVA - YENİ SİFARİŞ*',
+      en: '🛒 *SIDELYA BAKHLAVA - NEW ORDER*',
+      ru: '🛒 *SIDELYA BAKHLAVA - НОВЫЙ ЗАКАЗ*'
     };
 
     const clientLabel = { az: 'Müştəri', en: 'Client', ru: 'Клиент' };
@@ -124,16 +125,14 @@ export default function CartDrawer() {
     msg += `💰 *${totalPriceLabel[language]}:* *${totalPrice} ₼*\n\n`;
     msg += `💬 _${thanksLabel[language]}_`;
 
-    // WhatsApp base URL. Default merchant number: 994551234567
-    const whatsappNum = "994551234567";
     const encodedText = encodeURIComponent(msg);
-    const whatsappUrl = `https://wa.me/${whatsappNum}?text=${encodedText}`;
+    const whatsappUrl = `https://wa.me/${SHOP_PHONE}?text=${encodedText}`;
 
     // Open WhatsApp in a safe manner
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
     
     // Clear and Toast
-    showToast(t.toastCleared, 'info');
+    showToast(t.toastOrderSent, 'success');
     clearCart();
     setName('');
     setAddress('');

@@ -1,5 +1,14 @@
 import { Product } from './types';
 
+const images = import.meta.glob<string>('../assets/Images/*.jpeg', {
+  eager: true,
+  import: 'default',
+});
+
+function productImage(filename: string): string {
+  return images[`../assets/Images/${filename}`] ?? '';
+}
+
 export const products: Product[] = [
   {
     id: 1,
@@ -9,14 +18,14 @@ export const products: Product[] = [
       ru: "Сиделя Голд Пахлава"
     },
     description: {
-      az: "Zərif şokolad kremi və tünd Belçika şokolad qlazuru ilə hazırlanmış premium tort.",
-      en: "A premium cake layered with delicate chocolate cream and glazed with rich dark Belgian ganache.",
-      ru: "Премиальный торт с нежным шоколадным кремом и глазурью из темного бельгийского ганаша."
+      az: "Antep püstəsi və xüsusi şərbət ilə hazırlanmış premium qızıl baklava.",
+      en: "Premium gold baklava layered with Antep pistachios and special syrup.",
+      ru: "Премиальная золотая пахлава с фисташками из Антепа и особым сиропом."
     },
     price: 48,
     weight: 2.5,
     unit: "kg",
-    image: "./assets/Images/1.jpeg"
+    image: productImage('1.jpeg')
   },
   {
     id: 2,
@@ -26,14 +35,14 @@ export const products: Product[] = [
       ru: "Вишнёвая пахлава"
     },
     description: {
-      az: "Əsl kərə yağı, xüsusi şərbət və bol Antep püstəsi ilə hazırlanan milli üslublu paxlava.",
-      en: "Traditional flaky pastry with pure butter, honey syrup, and rich premium Turkish pistachios.",
-      ru: "Традиционная хрустящая пахлава с чистым сливочным маслом, медовым сиропом и отборными фисташками."
+      az: "Təzə vişnə aroması və incə xəmirdən hazırlanmış xüsusi paxlava.",
+      en: "Delicate pastry with a fresh cherry aroma and traditional flaky layers.",
+      ru: "Нежная пахлава с ароматом свежей вишни и тонкими слоями теста."
     },
     price: 48,
     weight: 2.5,
     unit: "kg",
-    image: "./assets/Images/2.jpeg"
+    image: productImage('2.jpeg')
   },
   {
     id: 3,
@@ -43,31 +52,31 @@ export const products: Product[] = [
       ru: "Классическая пахлава"
     },
     description: {
-      az: "Badam unundan bişirilmiş, fərqli incə kremlərlə doldurulmuş məşhur fransız deserti.",
-      en: "Famous French almond meringue cookies with smooth, premium gourmet fillings.",
-      ru: "Знаменитое французское миндальное пиченье с нежными изысканными начинками."
+      az: "Ənənəvi üsulla bişirilmiş klassik paxlava, bol fındıq və badam ilə.",
+      en: "Classic baklava baked the traditional way with rich hazelnuts and almonds.",
+      ru: "Классическая пахлава по традиционному рецепту с фундуком и миндалём."
     },
-    price:48,
+    price: 48,
     weight: 2.5,
     unit: "kg",
-    image: "./assets/Images/3.jpeg"
+    image: productImage('3.jpeg')
   },
   {
     id: 4,
     name: {
       az: "Midye Baklava",
-      en: "Mussel-shaped baklava",
+      en: "Mussel-shaped Baklava",
       ru: "Пахлава в форме мидии"
     },
     description: {
-      az: "Həqiqi dağ balı qatları və zərif qaymaqlı xama kremi ilə hazırlanmış klassik desert.",
-      en: "A classic dessert made with rich natural honey layers and delicate sour cream frosting.",
-      ru: "Классический торт со слоями натурального горного меда и нежным сметанным кремом."
+      az: "Midye formasında hazırlanmış incə xəmirdən baklava, püstə və şərbətli.",
+      en: "Flaky mussel-shaped baklava filled with pistachios and honey syrup.",
+      ru: "Хрустящая пахлава в форме мидии с фисташками и медовым сиропом."
     },
     price: 75,
     weight: 2.6,
     unit: "kg",
-    image: "./assets/Images/4.jpeg"
+    image: productImage('4.jpeg')
   },
   {
     id: 5,
@@ -77,48 +86,48 @@ export const products: Product[] = [
       ru: "Пахлава чизкейк"
     },
     description: {
-      az: "Belçika şokoladından hazırlanan, üzəri xalis kakao ilə örtülmüş əl işi truffellər.",
-      en: "Handcrafted truffles made of finest Belgian chocolate and dusted with premium dark cocoa.",
-      ru: "Конфеты ручной работы из элитного бельгийского шоколада, обсыпанные чистым какао."
+      az: "Pendir kremi və paxlava xəmirinin unikal birləşməsi.",
+      en: "A unique fusion of creamy cheesecake filling and classic baklava layers.",
+      ru: "Уникальное сочетание сливочного чизкейка и классической пахлавы."
     },
     price: 24,
     weight: 300,
     unit: "g",
-    image: "./assets/Images/5.jpeg"
+    image: productImage('5.jpeg')
   },
   {
     id: 6,
     name: {
       az: "Şöbiyet Baklava",
-      en: "Shobiet baklava",
+      en: "Shobiyet Baklava",
       ru: "Пахлава шобийет"
     },
     description: {
-      az: "Qaymaqlı pendir bünövrəsi üzərində zərif şəkildə bişirilmiş klassik Nyu-York çizkeyki.",
-      en: "Classic New York cheesecake baked to perfection on a buttery biscuit crust.",
-      ru: "Классический чизкейк Нью-Йорк, выпеченный на песочной основе со сливочным сыром."
+      az: "Xüsusi şöbiyet formasında hazırlanmış incə və şərbətli baklava.",
+      en: "Fine syrup-soaked baklava crafted in the distinctive shobiyet shape.",
+      ru: "Нежная пропитанная сиропом пахлава в фирменной форме шобийет."
     },
     price: 65,
     weight: 2.6,
     unit: "kg",
-    image: "./assets/Images/6.jpeg"
+    image: productImage('6.jpeg')
   },
   {
     id: 7,
     name: {
       az: "Kök Dilimi Baklava",
-      en: "Carrot slice baklava",
-      ru: "Пахлава «морковный ломтик"
+      en: "Carrot Slice Baklava",
+      ru: "Пахлава «морковный ломтик»"
     },
     description: {
-      az: "İçi südlü bişmiş krem ilə doldurulmuş, üzəri badam dilimləri və şokoladlı ekler.",
-      en: "Premium choux pastry filled with delicious vanilla custard cream, topped with roasted almonds.",
-      ru: "Эклеры с заварным ванильным кремом, украшенные обжаренными лепестками миндаля."
+      az: "Kök dilimi formasında kəsilmiş, qat-qat xəmirli klassik baklava.",
+      en: "Layered classic baklava cut into elegant carrot-slice shapes.",
+      ru: "Многослойная классическая пахлава, нарезанная в форме морковного ломтика."
     },
     price: 53,
     weight: 2.5,
-    unit: "pcs",
-    image: "./assets/Images/7.jpeg"
+    unit: "kg",
+    image: productImage('7.jpeg')
   },
   {
     id: 8,
@@ -128,14 +137,14 @@ export const products: Product[] = [
       ru: "Национальная пахлава"
     },
     description: {
-      az: "İçi üyüdülmüş fındıq, hil və şəkər tozu ilə doldurulmuş, sənətkarlıqla naxışlanmış şəkərbura.",
-      en: "Traditional Azerbaijani pastry, intricately hand-decorated and filled with cardamom-spiced hazelnuts.",
-      ru: "Традиционная азербайджанская выпечка с начинкой из лесного ореха с сахаром и кардамоном."
+      az: "Azərbaycanın milli şirniyyəti — ənənəvi üsulla hazırlanmış paxlava.",
+      en: "Traditional Azerbaijani baklava prepared using authentic national recipes.",
+      ru: "Традиционная азербайджанская пахлава по аутентичному национальному рецепту."
     },
     price: 28,
     weight: 10,
     unit: "pcs",
-    image: "./assets/Images/8.jpeg"
+    image: productImage('8.jpeg')
   },
   {
     id: 9,
@@ -145,72 +154,72 @@ export const products: Product[] = [
       ru: "Чизкейк с клубникой"
     },
     description: {
-      az: "Təbii qaymaq və təzə moruq sousu ilə hazırlanan yüngül, soyuq italyan deserti.",
-      en: "Light and creamy Italian gelatin dessert topped with fresh homemade raspberry sauce.",
-      ru: "Легкий сливочный итальянский десерт с соусом из свежей лесной малины."
+      az: "Təzə çiyələk ilə bəzədilmiş yüngül və qaymaqlı pendir tortu.",
+      en: "Light and creamy cheesecake topped with fresh strawberries.",
+      ru: "Лёгкий сливочный чизкейк с украшением из свежей клубники."
     },
     price: 3,
     weight: 140,
     unit: "g",
-    image: "./assets/Images/10.jpeg"
+    image: productImage('10.jpeg')
   },
   {
-    id: 9,
+    id: 10,
     name: {
       az: "Limonlu Cheesecake",
       en: "Lemon Cheesecake",
       ru: "Чизкейк с лимоном"
     },
     description: {
-      az: "Təbii qaymaq və təzə moruq sousu ilə hazırlanan yüngül, soyuq italyan deserti.",
-      en: "Light and creamy Italian gelatin dessert topped with fresh homemade raspberry sauce.",
-      ru: "Легкий сливочный итальянский десерт с соусом из свежей лесной малины."
+      az: "Limon aromalı, yüngül və təravətli pendir tortu.",
+      en: "Refreshing lemon cheesecake with a bright citrus flavor.",
+      ru: "Освежающий лимонный чизкейк с ярким цитрусовым вкусом."
     },
     price: 16,
     weight: 4,
     unit: "pcs",
-    image: "./assets/Images/9.jpeg"
+    image: productImage('9.jpeg')
   },
   {
-    id: 10,
+    id: 11,
     name: {
       az: "San Sebastian Cheesecake",
       en: "San Sebastian Cheesecake",
       ru: "Чизкейк Сан-Себастьян"
     },
     description: {
-      az: "Təbii qaymaq və təzə moruq sousu ilə hazırlanan yüngül, soyuq italyan deserti.",
-      en: "Light and creamy Italian gelatin dessert topped with fresh homemade raspberry sauce.",
-      ru: "Легкий сливочный итальянский десерт с соусом из свежей лесной малины."
+      az: "İspan üslubunda yandırılmış qabığı olan qaymaqlı pendir tortu.",
+      en: "Spanish-style burnt Basque cheesecake with a creamy center.",
+      ru: "Испанский чизкейк Сан-Себастьян с карамелизированной корочкой."
     },
     price: 3,
     weight: 190,
     unit: "g",
-    image: "./assets/Images/11.jpeg"
+    image: productImage('11.jpeg')
   },
   {
-    id: 11,
+    id: 12,
     name: {
       az: "Şokoladlı San Sebastian",
       en: "Chocolate San Sebastian",
       ru: "Шоколадный Сан-Себастьян"
     },
     description: {
-      az: "Təbii qaymaq və təzə moruq sousu ilə hazırlanan yüngül, soyuq italyan deserti.",
-      en: "Light and creamy Italian gelatin dessert topped with fresh homemade raspberry sauce.",
-      ru: "Легкий сливочный итальянский десерт с соусом из свежей лесной малины."
+      az: "Belçika şokoladı ilə hazırlanmış San Sebastian pendir tortu.",
+      en: "San Sebastian cheesecake enriched with premium Belgian chocolate.",
+      ru: "Чизкейк Сан-Себастьян с добавлением бельгийского шоколада."
     },
     price: 16,
     weight: 4,
     unit: "pcs",
-    image: "./assets/Images/12.jpeg"
+    image: productImage('12.jpeg')
   },
 ];
 
 export const reviews = [
   {
     id: 1,
-    name: "Tural Rzayev",
+    name: "Neman Yusif",
     rating: 5,
     comment: {
       az: "Tortlar həqiqətən əladır! Çox təzə idi, qonaqlarımız da çox bəyəndi. Hər kəsə tövsiyə edirəm.",
@@ -220,17 +229,17 @@ export const reviews = [
   },
   {
     id: 2,
-    name: "Elena Petrova",
+    name: "Rana Abdullayeva",
     rating: 5,
     comment: {
-      az: "Bakıda yediyim ən gözəl makaron desertləri buradadır. Şəkərbura və paxlavaları da əsl milli daddadır.",
-      en: "These are the best macarons I have ever eaten in Baku. The shekerbura and baklava taste genuinely traditional.",
-      ru: "Это лучшие макароны, которые я пробовала в Баку. Шекербура и пахлава имеют истинно традиционный вкус."
+      az: "Bakıda yediyim ən gözəl baklava buradadır. Şəkərbura və paxlavaları da əsl milli daddadır.",
+      en: "These are the best baklavas I have ever eaten in Baku. The shekerbura and baklava taste genuinely traditional.",
+      ru: "Это лучшая пахлава, которую я пробовала в Баку. Шекербура и пахлава имеют истинно традиционный вкус."
     }
   },
   {
     id: 3,
-    name: "Farid Mammadov",
+    name: "Nureddin İdrisov",
     rating: 5,
     comment: {
       az: "Premium xidmət və yüksək keyfiyyət. WhatsApp ilə sifariş etmək çox rahat oldu, tez cavab yazdılar.",

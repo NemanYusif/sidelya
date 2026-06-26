@@ -1,7 +1,8 @@
 import { useStore } from '../store';
 import { translations } from '../translations';
 import { motion } from 'motion/react';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { SHOP_PHONE } from '../constants';
 
 export default function Hero() {
   const language = useStore((state) => state.language);
@@ -76,7 +77,7 @@ export default function Hero() {
             </button>
 
             <a
-              href="tel:+994551234567"
+              href={`tel:+${SHOP_PHONE}`}
               className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-md border border-white/20 px-6 py-3 text-xs font-bold tracking-wider uppercase text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 font-sans"
               id="hero-contact-link"
             >

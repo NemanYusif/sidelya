@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import CartDrawer from './components/CartDrawer';
 import Toast from './components/Toast';
 import { Instagram, Facebook, Sparkles, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { SHOP_PHONE } from './constants';
 
 export default function App() {
   const { theme, language } = useStore();
@@ -173,7 +174,7 @@ export default function App() {
                 </li>
                 <li className="flex items-center gap-2.5">
                   <Phone className="h-4 w-4 shrink-0 text-stone-500" />
-                  <a href="tel:+994551234567" className="hover:text-white transition-colors">
+                  <a href={`tel:+${SHOP_PHONE}`} className="hover:text-white transition-colors">
                     {t.phoneVal}
                   </a>
                 </li>

@@ -1,6 +1,7 @@
 import { useStore } from '../store';
 import { translations } from '../translations';
 import { MapPin, Clock, Phone, Send, Map } from 'lucide-react';
+import { SHOP_PHONE } from '../constants';
 
 export default function LocationMap() {
   const language = useStore((state) => state.language);
@@ -88,7 +89,7 @@ export default function LocationMap() {
                       {t.phone}
                     </h4>
                     <a 
-                      href="tel:+994551234567"
+                      href={`tel:+${SHOP_PHONE}`}
                       className="mt-1 block text-sm font-medium text-neutral-800 hover:text-neutral-950 dark:text-neutral-200 dark:hover:text-white transition-colors underline decoration-dotted decoration-neutral-350"
                     >
                       {t.phoneVal}
@@ -106,7 +107,7 @@ export default function LocationMap() {
                       {t.whatsapp}
                     </h4>
                     <a 
-                      href="https://wa.me/994551234567" 
+                      href={`https://wa.me/${SHOP_PHONE}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="mt-1 block text-sm font-medium text-neutral-800 hover:text-neutral-950 dark:text-neutral-200 dark:hover:text-white transition-colors underline decoration-dotted decoration-neutral-350"
