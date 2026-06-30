@@ -18,9 +18,9 @@ export const products: Product[] = [
       ru: "Сиделя Голд Пахлава"
     },
     description: {
-      az: "Antep püstəsi və xüsusi şərbət ilə hazırlanmış premium qızıl baklava.",
-      en: "Premium gold baklava layered with Antep pistachios and special syrup.",
-      ru: "Премиальная золотая пахлава с фисташками из Антепа и особым сиропом."
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
     price: 48,
     weight: 2.5,
@@ -35,9 +35,9 @@ export const products: Product[] = [
       ru: "Вишнёвая пахлава"
     },
     description: {
-      az: "Təzə vişnə aroması və incə xəmirdən hazırlanmış xüsusi paxlava.",
-      en: "Delicate pastry with a fresh cherry aroma and traditional flaky layers.",
-      ru: "Нежная пахлава с ароматом свежей вишни и тонкими слоями теста."
+      az: "İncə Xəmir, Vişnə, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Cherries, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Вишня, Сливочное Масло, Сахарный Сироп "
     },
     price: 48,
     weight: 2.5,
@@ -52,9 +52,9 @@ export const products: Product[] = [
       ru: "Классическая пахлава"
     },
     description: {
-      az: "Ənənəvi üsulla bişirilmiş klassik paxlava, bol fındıq və badam ilə.",
-      en: "Classic baklava baked the traditional way with rich hazelnuts and almonds.",
-      ru: "Классическая пахлава по традиционному рецепту с фундуком и миндалём."
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
     price: 48,
     weight: 2.5,
@@ -69,9 +69,9 @@ export const products: Product[] = [
       ru: "Пахлава в форме мидии"
     },
     description: {
-      az: "Midye formasında hazırlanmış incə xəmirdən baklava, püstə və şərbətli.",
-      en: "Flaky mussel-shaped baklava filled with pistachios and honey syrup.",
-      ru: "Хрустящая пахлава в форме мидии с фисташками и медовым сиропом."
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
     price: 75,
     weight: 2.6,
@@ -86,9 +86,9 @@ export const products: Product[] = [
       ru: "Пахлава чизкейк"
     },
     description: {
-      az: "Pendir kremi və paxlava xəmirinin unikal birləşməsi.",
-      en: "A unique fusion of creamy cheesecake filling and classic baklava layers.",
-      ru: "Уникальное сочетание сливочного чизкейка и классической пахлавы."
+      az: "İncə Xəmir, Krem Pendir, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Cream Cheese, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Крем-Сыр, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
     price: 24,
     weight: 300,
@@ -103,9 +103,9 @@ export const products: Product[] = [
       ru: "Пахлава шобийет"
     },
     description: {
-      az: "Xüsusi şöbiyet formasında hazırlanmış incə və şərbətli baklava.",
-      en: "Fine syrup-soaked baklava crafted in the distinctive shobiyet shape.",
-      ru: "Нежная пропитанная сиропом пахлава в фирменной форме шобийет."
+      az: "İncə Xəmir, Krem, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Cream, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Крем, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
     price: 65,
     weight: 2.6,
@@ -120,9 +120,9 @@ export const products: Product[] = [
       ru: "Пахлава «морковный ломтик»"
     },
     description: {
-      az: "Kök dilimi formasında kəsilmiş, qat-qat xəmirli klassik baklava.",
-      en: "Layered classic baklava cut into elegant carrot-slice shapes.",
-      ru: "Многослойная классическая пахлава, нарезанная в форме морковного ломтика."
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
     price: 53,
     weight: 2.5,
@@ -137,9 +137,9 @@ export const products: Product[] = [
       ru: "Национальная пахлава"
     },
     description: {
-      az: "Azərbaycanın milli şirniyyəti — ənənəvi üsulla hazırlanmış paxlava.",
-      en: "Traditional Azerbaijani baklava prepared using authentic national recipes.",
-      ru: "Традиционная азербайджанская пахлава по аутентичному национальному рецепту."
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
     price: 28,
     weight: 10,
@@ -154,9 +154,9 @@ export const products: Product[] = [
       ru: "Чизкейк с клубникой"
     },
     description: {
-      az: "Təzə çiyələk ilə bəzədilmiş yüngül və qaymaqlı pendir tortu.",
-      en: "Light and creamy cheesecake topped with fresh strawberries.",
-      ru: "Лёгкий сливочный чизкейк с украшением из свежей клубники."
+      az: "Krem Pendir, Çiyələk, Biskvit Baza, Qaymaq, Şəkər",
+      en: "Cream Cheese, Strawberries, Biscuit Base, Cream, Sugar",
+      ru: "Крем-Сыр, Клубника, Бисквитная Основа, Сливки, Сахар"
     },
     price: 3,
     weight: 140,
@@ -171,9 +171,9 @@ export const products: Product[] = [
       ru: "Чизкейк с лимоном"
     },
     description: {
-      az: "Limon aromalı, yüngül və təravətli pendir tortu.",
-      en: "Refreshing lemon cheesecake with a bright citrus flavor.",
-      ru: "Освежающий лимонный чизкейк с ярким цитрусовым вкусом."
+      az: "Krem Pendir, Limon, Biskvit Baza, Qaymaq, Şəkər",
+      en: "Cream Cheese, Lemon, Biscuit Base, Cream, Sugar",
+      ru: "Крем-Сыр, Лимон, Бисквитная Основа, Сливки, Сахар"
     },
     price: 16,
     weight: 4,
@@ -188,9 +188,9 @@ export const products: Product[] = [
       ru: "Чизкейк Сан-Себастьян"
     },
     description: {
-      az: "İspan üslubunda yandırılmış qabığı olan qaymaqlı pendir tortu.",
-      en: "Spanish-style burnt Basque cheesecake with a creamy center.",
-      ru: "Испанский чизкейк Сан-Себастьян с карамелизированной корочкой."
+      az: "Krem Pendir, Yumurta, Qaymaq, Şəkər, Un",
+      en: "Cream Cheese, Eggs, Cream, Sugar, Flour",
+      ru: "Крем-Сыр, Яйца, Сливки, Сахар, Мука"
     },
     price: 3,
     weight: 190,
@@ -205,9 +205,9 @@ export const products: Product[] = [
       ru: "Шоколадный Сан-Себастьян"
     },
     description: {
-      az: "Belçika şokoladı ilə hazırlanmış San Sebastian pendir tortu.",
-      en: "San Sebastian cheesecake enriched with premium Belgian chocolate.",
-      ru: "Чизкейк Сан-Себастьян с добавлением бельгийского шоколада."
+      az: "Krem Pendir, Şokolad, Yumurta, Qaymaq, Şəkər, Un",
+      en: "Cream Cheese, Chocolate, Eggs, Cream, Sugar, Flour",
+      ru: "Крем-Сыр, Шоколад, Яйца, Сливки, Сахар, Мука"
     },
     price: 16,
     weight: 4,
@@ -221,9 +221,9 @@ export const products: Product[] = [
       ru: "Кюнефе"
     },
     description: {
-      az: "Kadayıf, yumşaq pendir, kərə yağı, şəkər siropu, fıstıq  ",
-      en: "Kadayif, soft cheese, butter, sugar syrup, pistachios",
-      ru: "Кадаиф, мягкий сыр, сливочное масло, сахарный сироп, фисташки"
+      az: "Kadayıf, Yumşaq Pendir, Kərə Yağı, Şəkər Siropu, Fıstıq",
+      en: "Kadayif, Soft Cheese, Butter, Sugar Syrup, Pistachios",
+      ru: "Кадаиф, Мягкий Сыр, Сливочное Масло, Сахарный Сироп, Фисташки"
     },
     price: 16,
     weight: 4,
@@ -837,6 +837,38 @@ export const products: Product[] = [
     weight: 4,
     unit: "pcs",
     image: productImage('51.jpeg')
+  },{
+    id: 52,
+    name: {
+      az: "Rafaello Cheesecake",
+      en: "Rafaello Cheesecake",
+      ru: "Чизкейк Рафаэлло"
+    },
+    description: {
+      az: "Krem pendir, kokos, ağ şokolad, biskvit baza, qaymaq",
+      en: "Cream cheese, coconut, white chocolate, biscuit base, cream",
+      ru: "Крем-сыр, кокос, белый шоколад, бисквитная основа, сливки"
+    },
+    price: 16,
+    weight: 4,
+    unit: "pcs",
+    image: productImage('52.jpeg')
+  },{
+    id: 53,
+    name: {
+      az: "Lotus Cheesecake",
+      en: "Lotus Cheesecake",
+      ru: "Чизкейк Лотус"
+    },
+    description: {
+      az: "Krem pendir, Lotus kremi, Lotus peçenyesi, biskvit baza, qaymaq",
+      en: "Cream cheese, Lotus spread, Lotus biscuits, biscuit base, cream",
+      ru: "Крем-сыр, крем Lotus, печенье Lotus, бисквитная основа, сливки"
+    },
+    price: 16,
+    weight: 4,
+    unit: "pcs",
+    image: productImage('53.jpeg')
   },
 ];
 
