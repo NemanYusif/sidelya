@@ -1,2 +1,2 @@
-export const SHOP_PHONE = '994705617071';
-export const SHOP_PHONE_DISPLAY = '+994 (70) 561-7071';
+export const SHOP_PHONE = '994777230313';
+export const SHOP_PHONE_DISPLAY = '+994 (77) 723-03-13';
