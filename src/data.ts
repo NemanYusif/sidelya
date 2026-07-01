@@ -90,9 +90,9 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Cream Cheese, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Крем-Сыр, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 24,
-    weight: 300,
-    unit: "g",
+    price: 45,
+    weight: 2.5,
+    unit: "kg",
     image: productImage('5.jpeg')
   },
   {
@@ -175,9 +175,9 @@ export const products: Product[] = [
       en: "Cream Cheese, Lemon, Biscuit Base, Cream, Sugar",
       ru: "Крем-Сыр, Лимон, Бисквитная Основа, Сливки, Сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 140,
+    unit: "g",
     image: productImage('9.jpeg')
   },
   {
@@ -225,9 +225,9 @@ export const products: Product[] = [
       en: "Kadayif, Soft Cheese, Butter, Sugar Syrup, Pistachios",
       ru: "Кадаиф, Мягкий Сыр, Сливочное Масло, Сахарный Сироп, Фисташки"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 2,
+    weight: 140,
+    unit: "g",
     image: productImage('13.jpeg')
   },{
     id: 14,
@@ -257,9 +257,9 @@ export const products: Product[] = [
       en: "Layered phyllo dough, butter, pistachios, sugar syrup",
       ru: "Слоёное тесто, сливочное масло, фисташки, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 48,
+    weight: 2.5,
+    unit: "kg",
     image: productImage('15.jpeg')
   },{
     id: 16,
@@ -273,9 +273,9 @@ export const products: Product[] = [
       en: "Dough, butter, pistachios, sugar syrup, cocoa or chocolate cream",
       ru: "Тесто, сливочное масло, фисташки, сахарный сироп, какао или шоколадный крем"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 165,
+    unit: "g",
     image: productImage('16.jpeg')
   },{
     id: 17,
@@ -289,9 +289,9 @@ export const products: Product[] = [
       en: "Chocolate sponge cake, cream, cherries, chocolate shavings",
       ru: "Шоколадный бисквит, сливочный крем, вишня, шоколадная стружка"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 170,
+    unit: "g",
     image: productImage('17.jpeg')
   },{
     id: 18,
@@ -305,9 +305,9 @@ export const products: Product[] = [
       en: "Savoiardi biscuits, mascarpone cream, coffee, cocoa powder, sugar",
       ru: "Печенье савоярди, крем маскарпоне, кофе, какао-порошок, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 190,
+    unit: "g",
     image: productImage('18.jpeg')
   },{
     id: 19,
@@ -321,9 +321,9 @@ export const products: Product[] = [
       en: "Honey sponge layers, sour cream or cream filling, honey, sugar",
       ru: "Медовые коржи, сметанный или сливочный крем, мёд, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 140,
+    unit: "g",
     image: productImage('19.jpeg')
   },{
     id: 20,
@@ -337,9 +337,9 @@ export const products: Product[] = [
       en: "Cream cheese, chocolate, pistachios, biscuit base, cream",
       ru: "Крем-сыр, шоколад, фисташки, бисквитная основа, сливки"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 140,
+    unit: "g",
     image: productImage('20.jpeg')
   },{
     id: 21,
@@ -353,9 +353,9 @@ export const products: Product[] = [
       en: "Cream cheese, raspberries, biscuit base, cream, sugar",
       ru: "Крем-сыр, малина, бисквитная основа, сливки, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 140,
+    unit: "g",
     image: productImage('21.jpeg')
   },{
     id: 22,
@@ -369,9 +369,9 @@ export const products: Product[] = [
       en: "Cream cheese, cherries, biscuit base, cream, sugar",
       ru: "Крем-сыр, вишня, бисквитная основа, сливки, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 140,
+    unit: "g",
     image: productImage('22.jpeg')
   },{
     id: 23,
@@ -385,9 +385,9 @@ export const products: Product[] = [
       en: "Cream cheese, Oreo cookies, biscuit base, cream, butter",
       ru: "Крем-сыр, печенье Oreo, бисквитная основа, сливки, масло"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 140,
+    unit: "g",
     image: productImage('23.jpeg')
   },{
     id: 24,
@@ -401,9 +401,9 @@ export const products: Product[] = [
       en: "Pistachio layered phyllo dough, butter, chocolate cream, sugar syrup",
       ru: "Слоёное тесто с фисташками, сливочное масло, шоколадный крем, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 55,
+    weight: 2.5,
+    unit: "kg",
     image: productImage('24.jpeg')
   },{
     id: 25,
@@ -417,9 +417,9 @@ export const products: Product[] = [
       en: "Thin phyllo dough, pistachios, butter, sugar syrup",
       ru: "Тонкое тесто, фисташки, сливочное масло, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 85,
+    weight: 2.5,
+    unit: "kg",
     image: productImage('25.jpeg')
   },{
     id: 26,
@@ -449,9 +449,9 @@ export const products: Product[] = [
       en: "Thin phyllo dough, butter, pistachios, milk, sugar syrup",
       ru: "Тонкое тесто, сливочное масло, фисташки, молоко, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 48,
+    weight: 2.8,
+    unit: "kg",
     image: productImage('27.jpeg')
   },{
     id: 28,
@@ -465,9 +465,9 @@ export const products: Product[] = [
       en: "Thin phyllo dough, butter, pistachios, milk, chocolate, sugar syrup",
       ru: "Тонкое тесто, сливочное масло, фисташки, молоко, шоколад, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 48,
+    weight: 2.8,
+    unit: "kg",
     image: productImage('28.jpeg')
   },{
     id: 29,
@@ -481,9 +481,9 @@ export const products: Product[] = [
       en: "Milk, rice, sugar, vanilla, cinnamon",
       ru: "Молоко, рис, сахар, ваниль, корица"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 1.6,
+    weight: 230,
+    unit: "g",
     image: productImage('29.jpeg')
   },{
     id: 30,
@@ -497,9 +497,9 @@ export const products: Product[] = [
       en: "Thin phyllo dough, butter, pistachios, milk, chocolate, sugar syrup",
       ru: "Молоко, какао, шоколад, сахар, мука или крахмал, сливочное масло"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 180,
+    unit: "g",
     image: productImage('30.jpeg')
   },{
     id: 31,
@@ -513,9 +513,9 @@ export const products: Product[] = [
       en: "Milk, vanilla cream, biscuits, banana or strawberry, sugar",
       ru: "Молоко, ванильный крем, печенье, банан или клубника, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 2,
+    weight: 230,
+    unit: "g",
     image: productImage('31.jpeg')
   },{
     id: 32,
@@ -529,9 +529,9 @@ export const products: Product[] = [
       en: "Kadayif, soft cheese, butter, sugar syrup, pistachios",
       ru: "Кадаиф, мягкий сыр, сливочное масло, сахарный сироп, фисташки"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 130,
+    unit: "g",
     image: productImage('32.jpeg')
   },{
     id: 33,
@@ -545,9 +545,9 @@ export const products: Product[] = [
       en: "Kadayif, soft cheese, butter, sugar syrup",
       ru: "Кадаиф, мягкий сыр, сливочное масло, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 2,
+    weight: 125,
+    unit: "g",
     image: productImage('33.jpeg')
   },{
     id: 34,
@@ -561,9 +561,9 @@ export const products: Product[] = [
       en: "Sponge cake, milk cream, egg white foam, sugar, gelatin",
       ru: "Бисквит, молочный крем, белковый мусс, сахар, желатин"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3.5,
+    weight: 170,
+    unit: "g",
     image: productImage('34.jpeg')
   },{
     id: 35,
@@ -577,9 +577,9 @@ export const products: Product[] = [
       en: "Kadayif, soft cheese, butter, sugar syrup",
       ru: "Кадаиф, мягкий сыр, сливочное масло, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 6,
+    weight: 135,
+    unit: "g",
     image: productImage('35.jpeg')
   },{
     id: 36,
@@ -593,9 +593,9 @@ export const products: Product[] = [
       en: "Flour, water, salt",
       ru: "Мука, вода, соль"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3.8,
+    weight: 1,
+    unit: "kg",
     image: productImage('36.jpeg')
   },{
     id: 37,
@@ -609,9 +609,9 @@ export const products: Product[] = [
       en: "Strawberries, marshmallows, cream, milk, biscuits, sugar",
       ru: "Клубника, маршмеллоу, сливки, молоко, печенье, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 4,
+    weight: 230,
+    unit: "g",
     image: productImage('37.jpeg')
   },{
     id: 38,
@@ -625,9 +625,9 @@ export const products: Product[] = [
       en: "Chocolate, milk, cocoa, butter, sugar, flour",
       ru: "Шоколад, молоко, какао, сливочное масло, сахар, мука"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 4,
+    weight: 230,
+    unit: "g",
     image: productImage('38.jpeg')
   },{
     id: 39  ,
@@ -641,9 +641,9 @@ export const products: Product[] = [
       en: "Chocolate, flour, eggs, butter, sugar, marshmallows",
       ru: "Шоколад, мука, яйца, сливочное масло, сахар, маршмеллоу"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 4,
+    weight: 230,
+    unit: "g",
     image: productImage('39.jpeg')
   },{
     id: 40  ,
@@ -657,9 +657,9 @@ export const products: Product[] = [
       en: "Oreo cookies, milk, cream, biscuits, sugar",
       ru: "Печенье Oreo, молоко, сливки, бисквит, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3.5,
+    weight: 230,
+    unit: "g",
     image: productImage('40.jpeg')
   },{
     id: 41,
@@ -673,9 +673,9 @@ export const products: Product[] = [
       en: "Cherries, cream, milk, biscuits, sugar",
       ru: "Вишня, сливки, молоко, печенье, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3.5,
+    weight: 230,
+    unit: "g",
     image: productImage('41.jpeg')
   },{
     id: 42,
@@ -689,9 +689,9 @@ export const products: Product[] = [
       en: "Chocolate, flour, eggs, butter, sugar",
       ru: "Шоколад, мука, яйца, сливочное масло, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3.5,
+    weight: 230,
+    unit: "g",
     image: productImage('42.jpeg')
   },{
     id: 43,
@@ -705,9 +705,9 @@ export const products: Product[] = [
       en: "Pistachio cream, chocolate, biscuits, cream, milk",
       ru: "Фисташковый крем, шоколад, печенье, сливки, молоко"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 4.5,
+    weight: 230,
+    unit: "g",
     image: productImage('43.jpeg')
   },{
     id: 44,
@@ -721,9 +721,9 @@ export const products: Product[] = [
       en: "Lotus cream, biscuits, cream, milk, sugar",
       ru: "Крем Lotus, печенье, сливки, молоко, сахар"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3.5,
+    weight: 230,
+    unit: "g",
     image: productImage('44.jpeg')
   },{
     id: 45,
@@ -737,9 +737,9 @@ export const products: Product[] = [
       en: "Thin phyllo dough, butter, pistachios, sugar syrup",
       ru: "Тонкое тесто, сливочное масло, фисташки, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 38,
+    weight: 3,
+    unit: "kg",
     image: productImage('45.jpeg')
   },{
     id: 46,
@@ -753,9 +753,9 @@ export const products: Product[] = [
       en: "Kadayif, pistachios, butter, sugar syrup",
       ru: "Кадаиф, фисташки, сливочное масло, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 26,
+    weight: 2,
+    unit: "kg",
     image: productImage('46.jpeg')
   },{
     id: 47,
@@ -769,9 +769,9 @@ export const products: Product[] = [
       en: "Kadayif, walnuts, butter, sugar syrup",
       ru: "Кадаиф, грецкие орехи, сливочное масло, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 23,
+    weight: 2,
+    unit: "kg",
     image: productImage('47.jpeg')
   },{
     id: 48,
@@ -785,9 +785,9 @@ export const products: Product[] = [
       en: "Cocoa, flour, eggs, sugar, milk, butter, chocolate sauce",
       ru: "Какао, мука, яйца, сахар, молоко, сливочное масло, шоколадный соус"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 123,
+    weight: 2,
+    unit: "kg",
     image: productImage('48.jpeg')
   },{
     id: 49,
@@ -801,9 +801,9 @@ export const products: Product[] = [
       en: "Yufka, eggs, butter, white cheese, milk",
       ru: "Юфка, яйца, сливочное масло, белый сыр, молоко"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 29/33,
+    weight: 3,
+    unit: "kg",
     image: productImage('49.jpeg')
   },{
     id: 50,
@@ -817,9 +817,9 @@ export const products: Product[] = [
       en: "Yufka, white cheese, parsley, butter, eggs",
       ru: "Юфка, белый сыр, петрушка, сливочное масло, яйца"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 8,
+    weight: 1,
+    unit: "kg",
     image: productImage('50.jpeg')
   },{
     id: 51,
@@ -833,9 +833,9 @@ export const products: Product[] = [
       en: "Yufka, white cheese, parsley, butter, eggs",
       ru: "Юфка, белый сыр, петрушка, сливочное масло, яйца"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 1.5,
+    weight: 200,
+    unit: "g",
     image: productImage('51.jpeg')
   },{
     id: 52,
