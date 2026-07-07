@@ -141,9 +141,9 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 28,
-    weight: 10,
-    unit: "pcs",
+    price: 15,
+    weight: 1,
+    unit: "kg",
     image: productImage('8.jpeg')
   },
   {
@@ -209,9 +209,9 @@ export const products: Product[] = [
       en: "Cream Cheese, Chocolate, Eggs, Cream, Sugar, Flour",
       ru: "Крем-Сыр, Шоколад, Яйца, Сливки, Сахар, Мука"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 190,
+    unit: "g",
     image: productImage('12.jpeg')
   },{
     id: 13,
@@ -241,9 +241,9 @@ export const products: Product[] = [
       en: "Thin dough, butter, clotted cream, sugar, pistachios",
       ru: "Тонкое тесто, сливочное масло, каймак, сахар, фисташки"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 12,
+    weight: 250,
+    unit: "g",
     image: productImage('14.jpeg')
   },{
     id: 15,
@@ -433,9 +433,9 @@ export const products: Product[] = [
       en: "Thin phyllo dough, pistachios, butter, sugar syrup",
       ru: "Тонкое тесто, фисташки, сливочное масло, сахарный сироп"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 48,
+    weight: 2.5,
+    unit: "kg",
     image: productImage('26.jpeg')
   },{
     id: 27,
@@ -785,7 +785,7 @@ export const products: Product[] = [
       en: "Cocoa, flour, eggs, sugar, milk, butter, chocolate sauce",
       ru: "Какао, мука, яйца, сахар, молоко, сливочное масло, шоколадный соус"
     },
-    price: 123,
+    price: 23,
     weight: 2,
     unit: "kg",
     image: productImage('48.jpeg')
@@ -801,7 +801,7 @@ export const products: Product[] = [
       en: "Yufka, eggs, butter, white cheese, milk",
       ru: "Юфка, яйца, сливочное масло, белый сыр, молоко"
     },
-    price: 29/33,
+    price: 33,
     weight: 3,
     unit: "kg",
     image: productImage('49.jpeg')
@@ -849,9 +849,9 @@ export const products: Product[] = [
       en: "Cream cheese, coconut, white chocolate, biscuit base, cream",
       ru: "Крем-сыр, кокос, белый шоколад, бисквитная основа, сливки"
     },
-    price: 16,
-    weight: 4,
-    unit: "pcs",
+    price: 3,
+    weight: 140,
+    unit: "g",
     image: productImage('52.jpeg')
   },{
     id: 53,
@@ -865,10 +865,74 @@ export const products: Product[] = [
       en: "Cream cheese, Lotus spread, Lotus biscuits, biscuit base, cream",
       ru: "Крем-сыр, крем Lotus, печенье Lotus, бисквитная основа, сливки"
     },
-    price: 16,
+    price: 3,
+    weight: 140,
+    unit: "g",
+    image: productImage('53.jpeg')
+  },{
+    id: 54,
+    name: {
+      az: "Lotus Cheesecake",
+      en: "Lotus Cheesecake",
+      ru: "Чизкейк Лотус"
+    },
+    description: {
+      az: "Krem pendir, Lotus kremi, Lotus peçenyesi, biskvit baza, qaymaq",
+      en: "Cream cheese, Lotus spread, Lotus biscuits, biscuit base, cream",
+      ru: "Крем-сыр, крем Lotus, печенье Lotus, бисквитная основа, сливки"
+    },
+    price: 1,
     weight: 4,
     unit: "pcs",
-    image: productImage('53.jpeg')
+    image: productImage('54.jpeg')
+  },{
+    id: 55,
+    name: {
+      az: "Taco Baklava",
+      en: "Taco Baklava",
+      ru: "Тако Пахлава"
+    },
+    description: {
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Krem, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Cream, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Крем, Сахарный Сироп"
+    },
+    price: 17,
+    weight: 1,
+    unit: "kg",
+    image: productImage('55.jpeg')
+  },{
+    id: 56,
+    name: {
+      az: "Roll Baklava",
+      en: "Roll Baklava",
+      ru: "Рулет Пахлава"
+    },
+    description: {
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
+    },
+    price: 18,
+    weight: 1,
+    unit: "kg",
+    image: productImage('56.jpeg')
+  },{
+    id: 57,
+    name: {
+      az: "Dondurmalı Baklava",
+      en: "Ice Cream Baklava",
+      ru: "Пахлава с Мороженым"
+    },
+    description: {
+      az: "İncə Xəmir, Fıstıq, Kərə Yağı, Dondurma, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Pistachios, Butter, Ice Cream, Sugar Syrup",
+      ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Мороженое, Сахарный Сироп"
+    },
+    price: 17,
+    weight: 1,
+    unit: "kg",
+    image: productImage('57.jpeg')
   },
 ];
 
