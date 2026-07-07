@@ -872,18 +872,18 @@ export const products: Product[] = [
   },{
     id: 54,
     name: {
-      az: "Lotus Cheesecake",
-      en: "Lotus Cheesecake",
-      ru: "Чизкейк Лотус"
+      az: "Qozlu Baklava",
+      en: "Walnut Baklava",
+      ru: "Пахлава С Грецким Орехом"
     },
     description: {
-      az: "Krem pendir, Lotus kremi, Lotus peçenyesi, biskvit baza, qaymaq",
-      en: "Cream cheese, Lotus spread, Lotus biscuits, biscuit base, cream",
-      ru: "Крем-сыр, крем Lotus, печенье Lotus, бисквитная основа, сливки"
+      az: "İncə Xəmir, Qoz, Kərə Yağı, Şəkər Siropu",
+      en: "Thin Phyllo Dough, Walnuts, Butter, Sugar Syrup",
+      ru: "Тонкое Тесто, Грецкие Орехи, Сливочное Масло, Сахарный Сироп"
     },
-    price: 1,
-    weight: 4,
-    unit: "pcs",
+    price: 33,
+    weight: 2.5,
+    unit: "kg",
     image: productImage('54.jpeg')
   },{
     id: 55,
@@ -933,6 +933,54 @@ export const products: Product[] = [
     weight: 1,
     unit: "kg",
     image: productImage('57.jpeg')
+  },{
+    id: 58,
+    name: {
+      az: "Frambuazlı Soyuq Kadayıf",
+      en: "Raspberry Cold Kadayif",
+      ru: "Холодный Кадаиф С Малиной",
+    },
+    description: {
+      az: "Kadayıf, Moruq, Süd, Krem, Şəkər",
+      en: "Kadayif, Raspberries, Milk, Cream, Sugar",
+      ru: "Кадаиф, Малина, Молоко, Сливки, Сахар"
+    },
+    price: 3.5,
+    weight: 130,
+    unit: "g",
+    image: productImage('58.jpeg')
+  },{
+    id: 59,
+    name: {
+      az: "Kokoslu Soyuq Kadayıf",
+      en: "Coconut Cold Kadayif",
+      ru: "Холодный Кадаиф С Кокосом"
+    },
+    description: {
+      az: "Kadayıf, Kokos, Süd, Krem, Şəkər",
+      en: "Kadayif, Coconut, Milk, Cream, Sugar",
+      ru: "Кадаиф, Кокос, Молоко, Сливки, Сахар"
+    },
+    price: 3.5,
+    weight: 130,
+    unit: "g",
+    image: productImage('59.jpeg')
+  },{
+    id: 60,
+    name: {
+      az: "Şokoladlı Soyuq Kadayıf",
+      en: "Chocolate Cold Kadayif",
+      ru: "Холодный Кадаиф С Шоколадом"
+    },
+    description: {
+      az: "Kadayıf, Şokolad, Süd, Krem, Şəkər",
+      en: "Kadayif, Chocolate, Milk, Cream, Sugar",
+      ru: "Кадаиф, Шоколад, Молоко, Сливки, Сахар"
+    },
+    price: 3.5,
+    weight: 130,
+    unit: "g",
+    image: productImage('60.jpeg')
   },
 ];
 

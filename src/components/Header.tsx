@@ -28,7 +28,7 @@ export default function Header() {
           </div>
           <div>
             <span
-              className="font-sans text-base font-semibold tracking-tight uppercase block leading-none"
+              className="font-sans text-2xl text-base font-semibold tracking-tight uppercase block leading-none"
               id="logo-text"
             >
               {t.shopName}
