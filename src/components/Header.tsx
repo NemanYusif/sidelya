@@ -37,11 +37,9 @@ export default function Header() {
               className="text-[9px] tracking-widest uppercase font-sans text-stone-400 dark:text-stone-500 block mt-1"
               id="logo-tagline"
             >
-              {t.shopTagline}
             </span>
           </div>
         </div>
-
         {/* Controls */}
         <div className="flex items-center gap-3 md:gap-5" id="header-controls">
 
