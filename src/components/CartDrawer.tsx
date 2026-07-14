@@ -4,9 +4,54 @@ import { translations } from '../translations';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Trash2, Plus, Minus, Send, ShoppingBag } from 'lucide-react';
 import { SHOP_PHONE } from '../constants';
+import { jsPDF } from 'jspdf';
 
 // Minimum order amount (AZN) required to be able to submit the order
 const MIN_ORDER_AMOUNT = 25;
+
+// Fixed character width for the monospace WhatsApp "receipt" block
+const RECEIPT_WIDTH = 32;
+
+// Truncates text with an ellipsis so it never overflows the receipt width
+const truncateText = (str: string, max: number) =>
+  str.length > max ? `${str.slice(0, Math.max(0, max - 1))}…` : str;
+
+// Left-aligns a label and right-aligns a value within RECEIPT_WIDTH columns
+const receiptRow = (label: string, value: string) => {
+  const combined = label.length + value.length;
+  if (combined >= RECEIPT_WIDTH) return `${label} ${value}`;
+  return `${label}${' '.repeat(RECEIPT_WIDTH - combined)}${value}`;
+};
+
+// Centers a line of text within RECEIPT_WIDTH columns
+const receiptCenter = (str: string) => {
+  const clipped = truncateText(str, RECEIPT_WIDTH);
+  const padTotal = RECEIPT_WIDTH - clipped.length;
+  const padLeft = Math.floor(padTotal / 2);
+  return `${' '.repeat(Math.max(0, padLeft))}${clipped}`;
+};
+
+const receiptDivider = (char: string = '-') => char.repeat(RECEIPT_WIDTH);
+
+// Renders the receipt lines into a downloadable PDF, styled like a printed check/receipt
+const generateReceiptPDF = (lines: string[], fileName: string) => {
+  // Narrow page width mimicking a thermal receipt printout
+  const doc = new jsPDF({ unit: 'mm', format: [80, Math.max(120, 20 + lines.length * 5) ] });
+
+  doc.setFont('courier', 'normal');
+  doc.setFontSize(9);
+
+  const marginX = 4;
+  let cursorY = 8;
+  const lineHeight = 4.6;
+
+  lines.forEach((line) => {
+    doc.text(line, marginX, cursorY);
+    cursorY += lineHeight;
+  });
+
+  doc.save(fileName);
+};
 
 export default function CartDrawer() {
   const { 
@@ -106,49 +151,77 @@ export default function CartDrawer() {
     }
 
     // Generate Invoice message block based on current active language
-    const headers = {
-      az: '🛒 *SIDELYA BAKHLAVA - YENİ SİFARİŞ*',
-      en: '🛒 *SIDELYA BAKHLAVA - NEW ORDER*',
-      ru: '🛒 *SIDELYA BAKHLAVA - НОВЫЙ ЗАКАЗ*'
-    };
-
+    const shopNameLabel = { az: 'SIDELYA BAKHLAVA', en: 'SIDELYA BAKHLAVA', ru: 'SIDELYA BAKHLAVA' };
+    const orderTitleLabel = { az: 'Yeni Sifariş', en: 'New Order', ru: 'Новый заказ' };
     const clientLabel = { az: 'Müştəri', en: 'Client', ru: 'Клиент' };
-    const addressLabel = { az: 'Çatdırılma Ünvanı / Qeyd', en: 'Delivery Address / Note', ru: 'Адрес доставки / Примечание' };
-    const productsLabel = { az: 'Məhsullar', en: 'Products', ru: 'Продукты' };
-    const totalWeightLabel = { az: 'Ümumi çəki', en: 'Total Weight', ru: 'Общий вес' };
-    const totalPriceLabel = { az: 'Cəmi məbləğ', en: 'Total Price', ru: 'Итоговая сумма' };
+    const addressLabel = { az: 'Ünvan', en: 'Address', ru: 'Адрес' };
+    const productsLabel = { az: 'MƏHSUL', en: 'PRODUCT', ru: 'ТОВАР' };
+    const totalWeightLabel = { az: 'Ümumi çəki', en: 'Total weight', ru: 'Общий вес' };
+    const totalPriceLabel = { az: 'CƏMİ', en: 'TOTAL', ru: 'ИТОГО' };
     const thanksLabel = {
-      az: 'Sifarişiniz qeydə alındı.Tezliklə sizinlə əlaqə saxlayacağıq. Təşəkkür edirik!',
-      en: 'We will contact you shortly. Thank you!',
-      ru: 'Мы свяжемся с вами в ближайшее время. Спасибо!'
+      az: 'Sifarişiniz qeydə alındı.\nTezliklə sizinlə əlaqə saxlayacağıq.\nTəşəkkür edirik!',
+      en: 'Your order has been received.\nWe will contact you shortly.\nThank you!',
+      ru: 'Ваш заказ принят.\nМы скоро свяжемся с вами.\nСпасибо!'
     };
 
-    let msg = `${headers[language]}\n`;
-    msg += `----------------------------------------\n`;
-    msg += `👤 *${clientLabel[language]}:* ${name.trim() || 'Anonymous'}\n`;
+    const orderDate = new Date().toLocaleString(
+      language === 'az' ? 'az-AZ' : language === 'ru' ? 'ru-RU' : 'en-GB',
+      { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }
+    );
+
+    const lines: string[] = [];
+    lines.push(receiptCenter(shopNameLabel[language]));
+    lines.push(receiptCenter(orderTitleLabel[language]));
+    lines.push(receiptDivider('='));
+    lines.push(receiptRow(orderDate, ''));
+    lines.push(receiptDivider());
+    lines.push(`${clientLabel[language]}: ${truncateText(name.trim() || 'Anonim', RECEIPT_WIDTH - clientLabel[language].length - 2)}`);
     if (address.trim()) {
-      msg += `📍 *${addressLabel[language]}:* ${address.trim()}\n`;
+      lines.push(`${addressLabel[language]}: ${truncateText(address.trim(), RECEIPT_WIDTH - addressLabel[language].length - 2)}`);
     }
-    msg += `\n📦 *${productsLabel[language]}:*\n`;
+    lines.push(receiptDivider());
+    lines.push(productsLabel[language]);
+    lines.push(receiptDivider());
 
     cart.forEach(({ product, quantity }) => {
-      const pName = product.name[language];
+      const pName = truncateText(product.name[language], RECEIPT_WIDTH);
       const pPrice = product.price;
       const subtotal = pPrice * quantity;
       const weightStr = getProductWeightLabel(product.weight, product.unit, quantity);
-      msg += `• *${pName}*\n  ${quantity} x ${pPrice} ₼ = *${subtotal} ₼* (${weightStr})\n`;
+
+      lines.push(pName);
+      lines.push(receiptRow(`  ${quantity} x ${pPrice} ₼ (${weightStr})`, `${subtotal} ₼`));
     });
 
-    msg += `----------------------------------------\n`;
-    msg += `⚖️ *${totalWeightLabel[language]}:* ${getCompiledWeight()}\n`;
-    msg += `💰 *${totalPriceLabel[language]}:* *${totalPrice} ₼*\n\n`;
-    msg += `💬 _${thanksLabel[language]}_`;
+    lines.push(receiptDivider());
+    lines.push(receiptRow(totalWeightLabel[language], getCompiledWeight()));
+    lines.push(receiptDivider('='));
+    lines.push(receiptRow(totalPriceLabel[language], `${totalPrice} ₼`));
+    lines.push(receiptDivider('='));
+
+    // Build and download the receipt as a PDF ("çek")
+    const pdfFileName = `sifaris-${Date.now()}.pdf`;
+    generateReceiptPDF(lines, pdfFileName);
+
+    const attachNoteLabel = {
+      az: '📎 Çek PDF olaraq yükləndi. Zəhmət olmasa endirilən faylı bu söhbətə əlavə edərək göndərin.',
+      en: '📎 The receipt was downloaded as a PDF. Please attach the downloaded file to this chat and send it.',
+      ru: '📎 Чек был загружен в формате PDF. Пожалуйста, прикрепите скачанный файл к этому чату и отправьте его.'
+    };
+
+    let msg = '```\n';
+    msg += lines.join('\n');
+    msg += '\n```\n\n';
+    msg += `_${thanksLabel[language]}_\n\n`;
+    msg += attachNoteLabel[language];
 
     const encodedText = encodeURIComponent(msg);
     const whatsappUrl = `https://wa.me/${SHOP_PHONE}?text=${encodedText}`;
 
-    // Open WhatsApp in a safe manner
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    // Open WhatsApp in a safe manner (slight delay so the PDF download starts first)
+    setTimeout(() => {
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    }, 300);
     
     // Clear and Toast
     showToast(t.toastOrderSent, 'success');
