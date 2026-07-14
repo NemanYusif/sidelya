@@ -8,30 +8,6 @@ import { SHOP_PHONE } from '../constants';
 // Minimum order amount (AZN) required to be able to submit the order
 const MIN_ORDER_AMOUNT = 25;
 
-// Fixed character width for the monospace WhatsApp "receipt" block
-const RECEIPT_WIDTH = 32;
-
-// Truncates text with an ellipsis so it never overflows the receipt width
-const truncateText = (str: string, max: number) =>
-  str.length > max ? `${str.slice(0, Math.max(0, max - 1))}…` : str;
-
-// Left-aligns a label and right-aligns a value within RECEIPT_WIDTH columns
-const receiptRow = (label: string, value: string) => {
-  const combined = label.length + value.length;
-  if (combined >= RECEIPT_WIDTH) return `${label} ${value}`;
-  return `${label}${' '.repeat(RECEIPT_WIDTH - combined)}${value}`;
-};
-
-// Centers a line of text within RECEIPT_WIDTH columns
-const receiptCenter = (str: string) => {
-  const clipped = truncateText(str, RECEIPT_WIDTH);
-  const padTotal = RECEIPT_WIDTH - clipped.length;
-  const padLeft = Math.floor(padTotal / 2);
-  return `${' '.repeat(Math.max(0, padLeft))}${clipped}`;
-};
-
-const receiptDivider = (char: string = '-') => char.repeat(RECEIPT_WIDTH);
-
 export default function CartDrawer() {
   const { 
     cart, 
@@ -130,58 +106,43 @@ export default function CartDrawer() {
     }
 
     // Generate Invoice message block based on current active language
-    const shopNameLabel = { az: 'SIDELYA BAKHLAVA', en: 'SIDELYA BAKHLAVA', ru: 'SIDELYA BAKHLAVA' };
-    const orderTitleLabel = { az: 'Yeni Sifariş', en: 'New Order', ru: 'Новый заказ' };
-    const clientLabel = { az: 'Müştəri', en: 'Client', ru: 'Клиент' };
-    const addressLabel = { az: 'Ünvan', en: 'Address', ru: 'Адрес' };
-    const productsLabel = { az: 'MƏHSUL', en: 'PRODUCT', ru: 'ТОВАР' };
-    const totalWeightLabel = { az: 'Ümumi çəki', en: 'Total weight', ru: 'Общий вес' };
-    const totalPriceLabel = { az: 'CƏMİ', en: 'TOTAL', ru: 'ИТОГО' };
-    const thanksLabel = {
-      az: 'Sifarişiniz qeydə alındı.\nTezliklə sizinlə əlaqə saxlayacağıq.\nTəşəkkür edirik!',
-      en: 'Your order has been received.\nWe will contact you shortly.\nThank you!',
-      ru: 'Ваш заказ принят.\nМы скоро свяжемся с вами.\nСпасибо!'
+    const headers = {
+      az: '🛒 *SIDELYA BAKHLAVA - YENİ SİFARİŞ*',
+      en: '🛒 *SIDELYA BAKHLAVA - NEW ORDER*',
+      ru: '🛒 *SIDELYA BAKHLAVA - НОВЫЙ ЗАКАЗ*'
     };
 
-    const orderDate = new Date().toLocaleString(
-      language === 'az' ? 'az-AZ' : language === 'ru' ? 'ru-RU' : 'en-GB',
-      { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }
-    );
+    const clientLabel = { az: 'Müştəri', en: 'Client', ru: 'Клиент' };
+    const addressLabel = { az: 'Çatdırılma Ünvanı / Qeyd', en: 'Delivery Address / Note', ru: 'Адрес доставки / Примечание' };
+    const productsLabel = { az: 'Məhsullar', en: 'Products', ru: 'Продукты' };
+    const totalWeightLabel = { az: 'Ümumi çəki', en: 'Total Weight', ru: 'Общий вес' };
+    const totalPriceLabel = { az: 'Cəmi məbləğ', en: 'Total Price', ru: 'Итоговая сумма' };
+    const thanksLabel = {
+      az: 'Sifarişiniz qeydə alındı.Tezliklə sizinlə əlaqə saxlayacağıq. Təşəkkür edirik!',
+      en: 'We will contact you shortly. Thank you!',
+      ru: 'Мы свяжемся с вами в ближайшее время. Спасибо!'
+    };
 
-    const lines: string[] = [];
-    lines.push(receiptCenter(shopNameLabel[language]));
-    lines.push(receiptCenter(orderTitleLabel[language]));
-    lines.push(receiptDivider('='));
-    lines.push(receiptRow(orderDate, ''));
-    lines.push(receiptDivider());
-    lines.push(`${clientLabel[language]}: ${truncateText(name.trim() || 'Anonim', RECEIPT_WIDTH - clientLabel[language].length - 2)}`);
+    let msg = `${headers[language]}\n`;
+    msg += `----------------------------------------\n`;
+    msg += `👤 *${clientLabel[language]}:* ${name.trim() || 'Anonymous'}\n`;
     if (address.trim()) {
-      lines.push(`${addressLabel[language]}: ${truncateText(address.trim(), RECEIPT_WIDTH - addressLabel[language].length - 2)}`);
+      msg += `📍 *${addressLabel[language]}:* ${address.trim()}\n`;
     }
-    lines.push(receiptDivider());
-    lines.push(productsLabel[language]);
-    lines.push(receiptDivider());
+    msg += `\n📦 *${productsLabel[language]}:*\n`;
 
     cart.forEach(({ product, quantity }) => {
-      const pName = truncateText(product.name[language], RECEIPT_WIDTH);
+      const pName = product.name[language];
       const pPrice = product.price;
       const subtotal = pPrice * quantity;
       const weightStr = getProductWeightLabel(product.weight, product.unit, quantity);
-
-      lines.push(pName);
-      lines.push(receiptRow(`  ${quantity} x ${pPrice} ₼ (${weightStr})`, `${subtotal} ₼`));
+      msg += `• *${pName}*\n  ${quantity} x ${pPrice} ₼ = *${subtotal} ₼* (${weightStr})\n`;
     });
 
-    lines.push(receiptDivider());
-    lines.push(receiptRow(totalWeightLabel[language], getCompiledWeight()));
-    lines.push(receiptDivider('='));
-    lines.push(receiptRow(totalPriceLabel[language], `${totalPrice} ₼`));
-    lines.push(receiptDivider('='));
-
-    let msg = '```\n';
-    msg += lines.join('\n');
-    msg += '\n```\n\n';
-    msg += `_${thanksLabel[language]}_`;
+    msg += `----------------------------------------\n`;
+    msg += `⚖️ *${totalWeightLabel[language]}:* ${getCompiledWeight()}\n`;
+    msg += `💰 *${totalPriceLabel[language]}:* *${totalPrice} ₼*\n\n`;
+    msg += `💬 _${thanksLabel[language]}_`;
 
     const encodedText = encodeURIComponent(msg);
     const whatsappUrl = `https://wa.me/${SHOP_PHONE}?text=${encodedText}`;
