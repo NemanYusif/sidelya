@@ -5,6 +5,33 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Trash2, Plus, Minus, Send, ShoppingBag } from 'lucide-react';
 import { SHOP_PHONE } from '../constants';
 
+// Minimum order amount (AZN) required to be able to submit the order
+const MIN_ORDER_AMOUNT = 25;
+
+// Fixed character width for the monospace WhatsApp "receipt" block
+const RECEIPT_WIDTH = 32;
+
+// Truncates text with an ellipsis so it never overflows the receipt width
+const truncateText = (str: string, max: number) =>
+  str.length > max ? `${str.slice(0, Math.max(0, max - 1))}…` : str;
+
+// Left-aligns a label and right-aligns a value within RECEIPT_WIDTH columns
+const receiptRow = (label: string, value: string) => {
+  const combined = label.length + value.length;
+  if (combined >= RECEIPT_WIDTH) return `${label} ${value}`;
+  return `${label}${' '.repeat(RECEIPT_WIDTH - combined)}${value}`;
+};
+
+// Centers a line of text within RECEIPT_WIDTH columns
+const receiptCenter = (str: string) => {
+  const clipped = truncateText(str, RECEIPT_WIDTH);
+  const padTotal = RECEIPT_WIDTH - clipped.length;
+  const padLeft = Math.floor(padTotal / 2);
+  return `${' '.repeat(Math.max(0, padLeft))}${clipped}`;
+};
+
+const receiptDivider = (char: string = '-') => char.repeat(RECEIPT_WIDTH);
+
 export default function CartDrawer() {
   const { 
     cart, 
@@ -28,6 +55,16 @@ export default function CartDrawer() {
 
   // Math totals
   const totalPrice = cart.reduce((acc, item) => acc + (item.product.price * item.quantity), 0);
+
+  // Whether current cart total is below the minimum order threshold
+  const isBelowMinimum = cart.length > 0 && totalPrice < MIN_ORDER_AMOUNT;
+
+  // Minimum order warning message per language
+  const minOrderLabel = {
+    az: `Minimum sifariş məbləği ${MIN_ORDER_AMOUNT} ₼-dir`,
+    en: `Minimum order amount is ${MIN_ORDER_AMOUNT} ₼`,
+    ru: `Минимальная сумма заказа ${MIN_ORDER_AMOUNT} ₼`
+  };
 
   // Compute compiled total weight labels
   const getCompiledWeight = () => {
@@ -86,44 +123,65 @@ export default function CartDrawer() {
       return;
     }
 
-    // Generate Invoice message block based on current active language
-    const headers = {
-      az: '🛒 *SIDELYA BAKHLAVA - YENİ SİFARİŞ*',
-      en: '🛒 *SIDELYA BAKHLAVA - NEW ORDER*',
-      ru: '🛒 *SIDELYA BAKHLAVA - НОВЫЙ ЗАКАЗ*'
-    };
-
-    const clientLabel = { az: 'Müştəri', en: 'Client', ru: 'Клиент' };
-    const addressLabel = { az: 'Çatdırılma Ünvanı / Qeyd', en: 'Delivery Address / Note', ru: 'Адрес доставки / Примечание' };
-    const productsLabel = { az: 'Məhsullar', en: 'Products', ru: 'Продукты' };
-    const totalWeightLabel = { az: 'Ümumi çəki', en: 'Total Weight', ru: 'Общий вес' };
-    const totalPriceLabel = { az: 'Cəmi məbləğ', en: 'Total Price', ru: 'Итоговая сумма' };
-    const thanksLabel = {
-      az: 'Tezliklə sizinlə əlaqə saxlayacağıq. Təşəkkür edirik!',
-      en: 'We will contact you shortly. Thank you!',
-      ru: 'Мы свяжемся с вами в ближайшее время. Спасибо!'
-    };
-
-    let msg = `${headers[language]}\n`;
-    msg += `----------------------------------------\n`;
-    msg += `👤 *${clientLabel[language]}:* ${name.trim() || 'Anonymous'}\n`;
-    if (address.trim()) {
-      msg += `📍 *${addressLabel[language]}:* ${address.trim()}\n`;
+    // Enforce minimum order amount before proceeding
+    if (totalPrice < MIN_ORDER_AMOUNT) {
+      showToast(minOrderLabel[language], 'error');
+      return;
     }
-    msg += `\n📦 *${productsLabel[language]}:*\n`;
+
+    // Generate Invoice message block based on current active language
+    const shopNameLabel = { az: 'SIDELYA BAKHLAVA', en: 'SIDELYA BAKHLAVA', ru: 'SIDELYA BAKHLAVA' };
+    const orderTitleLabel = { az: 'Yeni Sifariş', en: 'New Order', ru: 'Новый заказ' };
+    const clientLabel = { az: 'Müştəri', en: 'Client', ru: 'Клиент' };
+    const addressLabel = { az: 'Ünvan', en: 'Address', ru: 'Адрес' };
+    const productsLabel = { az: 'MƏHSUL', en: 'PRODUCT', ru: 'ТОВАР' };
+    const totalWeightLabel = { az: 'Ümumi çəki', en: 'Total weight', ru: 'Общий вес' };
+    const totalPriceLabel = { az: 'CƏMİ', en: 'TOTAL', ru: 'ИТОГО' };
+    const thanksLabel = {
+      az: 'Sifarişiniz qeydə alındı.\nTezliklə sizinlə əlaqə saxlayacağıq.\nTəşəkkür edirik!',
+      en: 'Your order has been received.\nWe will contact you shortly.\nThank you!',
+      ru: 'Ваш заказ принят.\nМы скоро свяжемся с вами.\nСпасибо!'
+    };
+
+    const orderDate = new Date().toLocaleString(
+      language === 'az' ? 'az-AZ' : language === 'ru' ? 'ru-RU' : 'en-GB',
+      { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }
+    );
+
+    const lines: string[] = [];
+    lines.push(receiptCenter(shopNameLabel[language]));
+    lines.push(receiptCenter(orderTitleLabel[language]));
+    lines.push(receiptDivider('='));
+    lines.push(receiptRow(orderDate, ''));
+    lines.push(receiptDivider());
+    lines.push(`${clientLabel[language]}: ${truncateText(name.trim() || 'Anonim', RECEIPT_WIDTH - clientLabel[language].length - 2)}`);
+    if (address.trim()) {
+      lines.push(`${addressLabel[language]}: ${truncateText(address.trim(), RECEIPT_WIDTH - addressLabel[language].length - 2)}`);
+    }
+    lines.push(receiptDivider());
+    lines.push(productsLabel[language]);
+    lines.push(receiptDivider());
 
     cart.forEach(({ product, quantity }) => {
-      const pName = product.name[language];
+      const pName = truncateText(product.name[language], RECEIPT_WIDTH);
       const pPrice = product.price;
       const subtotal = pPrice * quantity;
       const weightStr = getProductWeightLabel(product.weight, product.unit, quantity);
-      msg += `• *${pName}*\n  ${quantity} x ${pPrice} ₼ = *${subtotal} ₼* (${weightStr})\n`;
+
+      lines.push(pName);
+      lines.push(receiptRow(`  ${quantity} x ${pPrice} ₼ (${weightStr})`, `${subtotal} ₼`));
     });
 
-    msg += `----------------------------------------\n`;
-    msg += `⚖️ *${totalWeightLabel[language]}:* ${getCompiledWeight()}\n`;
-    msg += `💰 *${totalPriceLabel[language]}:* *${totalPrice} ₼*\n\n`;
-    msg += `💬 _${thanksLabel[language]}_`;
+    lines.push(receiptDivider());
+    lines.push(receiptRow(totalWeightLabel[language], getCompiledWeight()));
+    lines.push(receiptDivider('='));
+    lines.push(receiptRow(totalPriceLabel[language], `${totalPrice} ₼`));
+    lines.push(receiptDivider('='));
+
+    let msg = '```\n';
+    msg += lines.join('\n');
+    msg += '\n```\n\n';
+    msg += `_${thanksLabel[language]}_`;
 
     const encodedText = encodeURIComponent(msg);
     const whatsappUrl = `https://wa.me/${SHOP_PHONE}?text=${encodedText}`;
@@ -285,6 +343,16 @@ export default function CartDrawer() {
                   </div>
                 </div>
 
+                {/* Minimum order warning */}
+                {isBelowMinimum && (
+                  <div
+                    className="rounded border border-red-200 bg-red-50 px-3 py-2 text-[11px] font-semibold text-red-600 text-center dark:border-red-900/50 dark:bg-red-950/30 dark:text-red-400"
+                    id="min-order-warning"
+                  >
+                    {minOrderLabel[language]}
+                  </div>
+                )}
+
                 {/* User Order fields */}
                 <div className="space-y-3.5 pt-3 border-t border-stone-200 dark:border-neutral-800/50" id="checkout-inputs">
                   <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-stone-800 dark:text-neutral-200">
@@ -329,7 +397,11 @@ export default function CartDrawer() {
                 {/* Submit WhatsApp button */}
                 <button
                   type="submit"
-                  className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3 rounded font-bold flex items-center justify-center space-x-2 shadow-sm transition-colors text-xs uppercase tracking-wide cursor-pointer"
+                  disabled={isBelowMinimum}
+                  className={`w-full py-3 rounded font-bold flex items-center justify-center space-x-2 shadow-sm transition-colors text-xs uppercase tracking-wide
+                    ${isBelowMinimum
+                      ? 'bg-stone-300 text-stone-500 cursor-not-allowed dark:bg-neutral-800 dark:text-neutral-500'
+                      : 'bg-[#25D366] hover:bg-[#20ba59] text-white cursor-pointer'}`}
                   id="submit-order-whatsapp-btn"
                 >
                   <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
