@@ -7,7 +7,7 @@ import { SHOP_PHONE } from '../constants';
 import { jsPDF } from 'jspdf';
 
 // Minimum order amount (AZN) required to be able to submit the order
-const MIN_ORDER_AMOUNT = 25;
+const MIN_ORDER_AMOUNT = 18;
 
 // Fixed character width for the monospace WhatsApp "receipt" block
 const RECEIPT_WIDTH = 32;

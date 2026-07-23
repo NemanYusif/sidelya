@@ -22,8 +22,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 48,
-    weight: 2.5,
+    price: 16,
+    weight: 1,
     unit: "kg",
     image: productImage('1.jpeg')
   },
@@ -39,8 +39,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Cherries, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Вишня, Сливочное Масло, Сахарный Сироп "
     },
-    price: 48,
-    weight: 2.5,
+    price: 16,
+    weight: 1,
     unit: "kg",
     image: productImage('2.jpeg')
   },
@@ -56,8 +56,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 48,
-    weight: 2.5,
+    price: 18,
+    weight: 1,
     unit: "kg",
     image: productImage('3.jpeg')
   },
@@ -73,8 +73,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 75,
-    weight: 2.6,
+    price: 27,
+    weight: 1,
     unit: "kg",
     image: productImage('4.jpeg')
   },
@@ -90,8 +90,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Cream Cheese, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Крем-Сыр, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 45,
-    weight: 2.5,
+    price: 15,
+    weight: 1,
     unit: "kg",
     image: productImage('5.jpeg')
   },
@@ -107,8 +107,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Cream, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Крем, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 65,
-    weight: 2.6,
+    price: 23,
+    weight: 1,
     unit: "kg",
     image: productImage('6.jpeg')
   },
@@ -124,8 +124,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Pistachios, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Фисташки, Сливочное Масло, Сахарный Сироп"
     },
-    price: 53,
-    weight: 2.5,
+    price: 18,
+    weight: 1,
     unit: "kg",
     image: productImage('7.jpeg')
   },
@@ -257,8 +257,8 @@ export const products: Product[] = [
       en: "Layered phyllo dough, butter, pistachios, sugar syrup",
       ru: "Слоёное тесто, сливочное масло, фисташки, сахарный сироп"
     },
-    price: 48,
-    weight: 2.5,
+    price: 18,
+    weight: 1,
     unit: "kg",
     image: productImage('15.jpeg')
   },{
@@ -401,8 +401,8 @@ export const products: Product[] = [
       en: "Pistachio layered phyllo dough, butter, chocolate cream, sugar syrup",
       ru: "Слоёное тесто с фисташками, сливочное масло, шоколадный крем, сахарный сироп"
     },
-    price: 55,
-    weight: 2.5,
+    price: 18,
+    weight: 1,
     unit: "kg",
     image: productImage('24.jpeg')
   },{
@@ -417,8 +417,8 @@ export const products: Product[] = [
       en: "Thin phyllo dough, pistachios, butter, sugar syrup",
       ru: "Тонкое тесто, фисташки, сливочное масло, сахарный сироп"
     },
-    price: 85,
-    weight: 2.5,
+    price: 30,
+    weight: 1,
     unit: "kg",
     image: productImage('25.jpeg')
   },{
@@ -433,8 +433,8 @@ export const products: Product[] = [
       en: "Thin phyllo dough, pistachios, butter, sugar syrup",
       ru: "Тонкое тесто, фисташки, сливочное масло, сахарный сироп"
     },
-    price: 48,
-    weight: 2.5,
+    price: 16,
+    weight: 1,
     unit: "kg",
     image: productImage('26.jpeg')
   },{
@@ -449,8 +449,8 @@ export const products: Product[] = [
       en: "Thin phyllo dough, butter, pistachios, milk, sugar syrup",
       ru: "Тонкое тесто, сливочное масло, фисташки, молоко, сахарный сироп"
     },
-    price: 48,
-    weight: 2.8,
+    price: 17,
+    weight: 1,
     unit: "kg",
     image: productImage('27.jpeg')
   },{
@@ -465,8 +465,8 @@ export const products: Product[] = [
       en: "Thin phyllo dough, butter, pistachios, milk, chocolate, sugar syrup",
       ru: "Тонкое тесто, сливочное масло, фисташки, молоко, шоколад, сахарный сироп"
     },
-    price: 48,
-    weight: 2.8,
+    price: 17,
+    weight: 1,
     unit: "kg",
     image: productImage('28.jpeg')
   },{
@@ -737,8 +737,8 @@ export const products: Product[] = [
       en: "Thin phyllo dough, butter, pistachios, sugar syrup",
       ru: "Тонкое тесто, сливочное масло, фисташки, сахарный сироп"
     },
-    price: 38,
-    weight: 3,
+    price: 13,
+    weight: 1,
     unit: "kg",
     image: productImage('45.jpeg')
   },{
@@ -753,8 +753,8 @@ export const products: Product[] = [
       en: "Kadayif, pistachios, butter, sugar syrup",
       ru: "Кадаиф, фисташки, сливочное масло, сахарный сироп"
     },
-    price: 26,
-    weight: 2,
+    price: 13,
+    weight: 1,
     unit: "kg",
     image: productImage('46.jpeg')
   },{
@@ -789,55 +789,8 @@ export const products: Product[] = [
     weight: 2,
     unit: "kg",
     image: productImage('48.jpeg')
-  },{
-    id: 49,
-    name: {
-      az: "Su Böreği",
-      en: "Water Börek",
-      ru: "Су Бёрек"
-    },
-    description: {
-      az: "Yufka, yumurta, kərə yağı, ağ pendir, süd",
-      en: "Yufka, eggs, butter, white cheese, milk",
-      ru: "Юфка, яйца, сливочное масло, белый сыр, молоко"
-    },
-    price: 33,
-    weight: 3,
-    unit: "kg",
-    image: productImage('49.jpeg')
-  },{
-    id: 50,
-    name: {
-      az: "Siqara Böreği",
-      en: "Cigarette Borek",
-      ru: "Сигара Бёрек"
-    },
-    description: {
-      az: "Yufka, ağ pendir, cəfəri, kərə yağı, yumurta",
-      en: "Yufka, white cheese, parsley, butter, eggs",
-      ru: "Юфка, белый сыр, петрушка, сливочное масло, яйца"
-    },
-    price: 8,
-    weight: 1,
-    unit: "kg",
-    image: productImage('50.jpeg')
-  },{
-    id: 51,
-    name: {
-      az: "Gül Böreği",
-      en: "Rose Borek",
-      ru: "Розочка Бёрек"
-    },
-    description: {
-      az: "Yufka, ağ pendir, cəfəri, kərə yağı, yumurta",
-      en: "Yufka, white cheese, parsley, butter, eggs",
-      ru: "Юфка, белый сыр, петрушка, сливочное масло, яйца"
-    },
-    price: 1.5,
-    weight: 200,
-    unit: "g",
-    image: productImage('51.jpeg')
-  },{
+  },
+ {
     id: 52,
     name: {
       az: "Rafaello Cheesecake",
@@ -881,8 +834,8 @@ export const products: Product[] = [
       en: "Thin Phyllo Dough, Walnuts, Butter, Sugar Syrup",
       ru: "Тонкое Тесто, Грецкие Орехи, Сливочное Масло, Сахарный Сироп"
     },
-    price: 33,
-    weight: 2.5,
+    price: 15,
+    weight: 1,
     unit: "kg",
     image: productImage('54.jpeg')
   },{
